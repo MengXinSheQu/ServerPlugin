@@ -71,6 +71,8 @@ namespace ServerPlugin
         }
         private void OnRoundStart()
         {
+            if (!Plugin.Instance.Config.InfAmmo)
+                return;
             Timing.KillCoroutines($"{Plugin.Package}:InfAmmo");
             Timing.RunCoroutine(InfAmmo(), $"{Plugin.Package}:InfAmmo");
         }
